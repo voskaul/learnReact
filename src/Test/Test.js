@@ -1,18 +1,18 @@
 import React, { useRef, useEffect, useState } from "react"
 import { gsap } from "gsap"
 
-export default function GsapTest() {
+export default function Test() {
   const boxRef = useRef()
   const [count, setCount] = useState(0)
 
   useEffect(() => {
-    gsap.to(boxRef.current, { rotation: "+=360" })
-  }, [count])
+    gsap.to(boxRef.current, { rotation: "360" })
+  })
 
   return (
     <div>
       <div className="box" ref={boxRef}>
-        2222222221111
+        xxxxxxxxssssll
       </div>
       <p>{count}</p>
       <button

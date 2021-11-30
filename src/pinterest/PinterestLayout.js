@@ -1,12 +1,11 @@
 import React from "react"
-import Pin from "./Pin"
 
 const isOnline = false
 
 const PinterestLayout = () => {
   return (
     <div>
-      <div style={styles.pin_container}>222 </div>
+      <div style={styles.pin_container}>2222222eeee22sssssss </div>
       <span style={{ color: isOnline ? "green" : "navy" }}> 12312</span>
     </div>
   )
