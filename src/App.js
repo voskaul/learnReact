@@ -1,9 +1,7 @@
-import Button from "@material-ui/core/Button"
-import css from "./style.css"
+import "./style.css"
 import PinterestLayout from "./pinterest/PinterestLayout"
 import PinterestLayout2 from "./GsapTest/GsapTest"
 import Test from "./Test/Test"
-import GsapTest from "./GsapTest/GsapTest"
 import "./scss/style.scss"
 
 function Header() {

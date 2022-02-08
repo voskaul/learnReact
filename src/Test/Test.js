@@ -12,9 +12,9 @@ export default function Test() {
   return (
     <div>
       <div className="box" ref={boxRef}>
-        xxxxxxxxssssll
+        xxxssll
       </div>
-      <p>{count}</p>
+      <p>{count}aaa</p>
       <button
         onClick={() => {
           setCount(count + 1)
