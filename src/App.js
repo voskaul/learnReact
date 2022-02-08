@@ -4,6 +4,8 @@ import PinterestLayout from "./pinterest/PinterestLayout"
 import PinterestLayout2 from "./GsapTest/GsapTest"
 import Test from "./Test/Test"
 import GsapTest from "./GsapTest/GsapTest"
+import "./scss/style.scss"
+
 function Header() {
   return <PinterestLayout />
 }
