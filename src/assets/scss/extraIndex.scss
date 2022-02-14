@@ -1,0 +1,234 @@
+// breakpoints
+
+$S:480px;
+$M:720px; 
+$L:1120px; 
+$XL:1200px; 
+
+// media queries
+
+@mixin MQ($canvas) {
+  @if $canvas==S {
+    @media only screen and (min-width: $S) {
+      @content;
+    }
+  }
+  @else if $canvas==M {
+    @media only screen and (min-width: $M) {
+      @content;
+    }
+  }
+  @else if $canvas==L {
+    @media only screen and (min-width: $L) {
+      @content;
+    }
+  }
+  @else if $canvas==XL {
+    @media only screen and (min-width: $XL) {
+      @content;
+    }
+  }
+}
+
+body{
+
+  position: relative;
+}
+.none {
+  opacity: 0;
+}
+section{
+  min-height: 100vh;
+  min-width: 100vw;
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: column-reverse;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  padding:2em .5em;
+  @include MQ(M){
+    flex-direction: row;
+    
+  }
+
+}
+
+.atom{
+  position: relative;box-sizing: border-box;
+  width: 100%;
+
+  padding: 120px 0 0 0; 
+  @include MQ(M){
+    width: 460px;
+    //height:400px;
+  }
+  .astronaut{
+    position: absolute;
+    left:50%;
+    transform: translateX(-50%);
+    width:160px;
+    top:0;;
+  }
+  .space{
+    @include MQ(M){
+      
+    }
+  }
+  img{
+    width: 100%;
+  }
+  .plants{
+    position: absolute;	
+    width: 33%;
+    top: -50px;
+    animation: fireMoveB 4s linear infinite;
+  }
+
+}
+
+.txtarea{
+  width:100%;
+  max-width: 400px;
+  padding:1em .5em;
+  @include MQ(L){
+    max-width: 600px;
+  }
+}
+
+
+.starsIndex{
+  fill:#fff;
+  transform-origin: 217.5px 72px;
+  
+  animation: spins 5s linear infinite;
+}
+
+
+@keyframes spins {
+
+    from {
+    transform: rotate( 0deg );
+    }
+
+    to {
+    transform: rotate( -360deg  );
+    }
+}
+
+.linesA ,.linesB{
+  position: absolute ;
+  border-bottom: 8px solid #fff;
+  transform-origin: 0 0;
+   
+}
+.linesA{
+  
+  top:0 ; right:-100px;
+  width: 100px;
+  transform: rotate(135deg);
+  
+  @include MQ(M){
+    right:-200px;
+    width: 200px;
+  }
+}
+.linesB{
+  bottom:-5px ; left:-5px;
+  width: 100px;
+  transform: rotate(-45deg);
+  @include MQ(M){
+    width: 200px;
+  }
+}
+
+
+.fire{
+  animation: fireMove 0.3s linear infinite;
+}
+@keyframes fireMove {
+
+    0% {
+    transform:translateY(0px);
+    }
+
+    50% {
+    transform:translateY(1px);
+    }
+    
+    100% {
+      transform:translateY(0px);
+    }
+}
+
+@keyframes fireMoveB {
+
+    0% {
+    transform:translateY(0px);
+    }
+
+    50% {
+    transform:translateY(10px);
+    }
+    
+    100% {
+      transform:translateY(0px);
+    }
+}
+
+.meteor{
+  
+  position: absolute;
+  width:100vw ;
+  height:100vh;
+  overflow: hidden; 
+}
+
+$n: 15; // 流星數量
+@for $i from 1 through $n {
+  $v: random(90) + 9; // left
+  $h: random(350) + 50; // top
+  $d: random(70)/10 + 3; // 秒數
+  .meteor-#{$i} {
+  position: absolute;
+  top: $h + px;
+  left: $v*1%;
+  width: 300px;
+  height: 1px;
+  transform: rotate(-45deg);
+  background-image: linear-gradient(to right, #fff, rgba(255,255,255,0));
+  animation: meteor $d+s linear  infinite;
+  &:before {
+    content: "";
+    position: absolute;
+    width: 4px;
+    height: 5px;
+    border-radius: 50%;
+    margin-top: -2px;
+    background: rgba(#fff,.7);
+    box-shadow: 0 0 15px 3px #fff;
+    left: 0;
+  }
+  
+  }
+}
+
+
+@keyframes meteor {
+  0% {
+  opacity: 1;
+  margin-top: -300px;
+  margin-right: -300px;
+  }
+  12% {
+  opacity: 0;
+  }
+  15% {
+  margin-top: 300px;
+  margin-left: -600px;
+  opacity: 0;
+  }
+  100% {
+  opacity: 0;
+  }
+}

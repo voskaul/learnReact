@@ -9,7 +9,7 @@ const FontsEffect = () => {
 		let ans = arrArange(el.childNodes.length);
 		for(let i = 0 ; i < el.childNodes.length ; i++){
 			setTimeout(() => {
-				el.childNodes[ans[i]].classList.add('ani'+i);
+				el.childNodes[ans[i]].classList.add(addClass(i));
 			}, 100 * i)
 		}
 	}, [])
@@ -46,7 +46,9 @@ const arrArange = (nums) =>{
 	return resoult;
 }
 
-const  filtered = (num , arr) => {  arr.splice(num, 1); }
+const filtered = (num , arr) => {  arr.splice(num, 1); }
 
+const addClass = (i) => {return `ani${i}`}
 
 export default FontsEffect
+
