@@ -2,10 +2,11 @@ import React from "react"
 import "../assets/scss/cssPattem.scss"
 
 const LetterEff = () => {
+  let url = ""
   return (
     <>
       <div className="letterEff">
-        <a className="block">
+        <a className="block" href={url}>
           <span className="spaced">M</span>
           <span className="ghost">a</span>
           <span className="ghost">j</span>
